@@ -1,0 +1,148 @@
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: #73dab2;
+}
+
+.flex {
+    margin: 10px;
+    display: flex;
+}
+
+.flexOne {
+    flex-direction: row;
+
+    .square {
+        margin-left: 5px;
+    }
+}
+
+.flexTwo {
+    flex-direction: column;
+
+    .square {
+        margin-bottom: 2px;
+    }
+}
+
+.flexThree {
+    flex-direction: row-reverse;
+    justify-content: left;
+
+    .square {
+        margin-left: 5px;
+    }
+}
+
+.flexFour {
+    flex-direction: row;
+    width: 350px;
+    flex-wrap: wrap;
+
+    .square {
+        margin: 5px;
+        background: #3d8b6d;
+    }
+}
+
+.flexFive {
+    flex-direction: row;
+    width: 350px;
+    .item {
+        width: 10px;
+        height: 100px;
+        margin: 2px;
+        background: #0b6643;
+        flex-grow: 1;
+    }
+
+    #grow {
+        flex-grow: 2;
+    }
+}
+
+.flexSix {
+    flex-direction: column;
+    height: 400px;
+    width: 500px;
+    background: #f1f1f1;
+
+    .one {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .two {
+        display: flex;
+        justify-content: space-between;
+        margin: 50px 0;
+        background: #d6d6d6;
+    }
+
+    .three {
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+}
+
+.flexSeven {
+    height: 400px;
+    width: 500px;
+    justify-content: space-between;
+    background: #f1f1f1;
+
+    .one, .two, .three, .four {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .one {
+        justify-content: center;
+    }
+
+    .two {
+        justify-content: end;
+        background: #d6d6d6;
+    }
+
+    .three {
+        justify-content: flex-start;
+    }
+
+    .four {
+        justify-content: space-between;
+        background: #d6d6d6;
+    }
+}
+
+.flexEight {
+    height: 400px;
+    background: #eeeeee;
+    width: 300px;
+
+    .one {
+        display: flex;
+        align-items: center;
+    }
+    .two {
+        display: flex;
+        align-items: end;
+    }    
+    .three {
+        display: flex;
+        align-items: start;
+    }
+}
+
+.flexNine {
+    width: 450px;
+    height: 250px;
+    background: #eeeeee;
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+    #special {
+        align-self: flex-end;
+    }
+}
