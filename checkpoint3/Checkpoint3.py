@@ -2,7 +2,10 @@
 string = "hello world"
 number = 5
 list = [1, 2, 3]
-boolean = 3 > 2
+a = 3
+b = 2
+boolean = a > b
+print(boolean)
 
 2.
 exercise_2 = string[0:3]
@@ -26,7 +29,7 @@ list_names = names.split(',')
 print(list_names)
 
 7.
-exercise_7 = string[0:5].upper() + string [5:-1]
+exercise_7 = string[0:5].upper() + string [5:]
 print(exercise_7)
 
 8.
