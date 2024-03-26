@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Checkpoint_5" content="width=device-width, initial-scale=1.0">
+    <title>Checkpoint_5</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+</head>
+<style>
+
+
+.body {
+    margin: 0;
+    background-color: cadetblue;
+}
+
+.checkpoint {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 95vw;
+    justify-items:center ;
+    grid-gap: 20px;
+    font-family: 'Lato', sans-serif;
+}
+
+.pregunta {
+    width: 70vw;
+    background-color: #efefef;
+    border-radius: 15px;
+    padding: 12px;
+}
+
+.pregunta h2{
+    text-align: center;
+}
+
+.espacio {
+    margin-top: 15px;
+}
+
+</style>
+
+<body>
+    <div class="checkpoint">
+
+        <h1>Checkpoint 5</h1>
+
+        <div class="pregunta">
+            <h2>¿Qué es un condicional?</h2>
+            <div class="respuestas">
+                <p>Los condicionales con instrucciones que controlan el flujo de ejecución de tu programa, depende de si la condición es <b>True</b> (verdadero) o <b>False</b> (falso). Permite que el código se adapte a diferentes situaciones. </p>
+                <p>Las instrucciones básicas en python son: <b>if</b> (si) que permite especificar una condición, y si esa condición se evalúa como <b>True</b> (verdadero), se ejecutará un bloque de código. La instrucción <b>else</b> (sino), proporciona una alternativa si la ejecución en la instrucción if es <b>False</b> (falso). Y por último la instruccion <b>elif</b> (si no)  que permite verificar múltiples condiciones secuencialmente. Se usa dentro de una estructura <b>if</b> y te permite definir condiciones adicionales para ejecutar diferentes bloques de código.</p>
+                <h4>Ejemplos</h4>
+
+                <pre><code>
+    calificacion = 70
+    
+    <b>if</b> calificacion >= 90:       #Este bloque se imprime si es mayor o igual a 90.
+        print("Excelente!")    
+
+    <b>elif</b> calificacion >= 80:     #Este bloque se imprime si es mayor o igual a 80.
+        print("Muy bien!")
+
+    <b>else:</b>                        #Si ninguno de los alteriodes es <b>True</b> imprime este bloque.
+        print("Sigue practicando!")    
+                </code></pre>
+
+                <P>En este ejemplo, la instrucción <b>if</b> primero verifica si el puntaje es mayor o igual a 90. Si no se cumple, la instrucción <b>elif </b>verifica si el puntaje es mayor o igual a 80. Finalmente, si ninguna condición es verdadera, se ejecuta <b>else</b>.</P>
+
+                <p>Los condicionales se basan en operadores de comparación para evaluar condiciones. Estos operadores comparan valores y devuelven <b>True</b> o <b>False</b>. Algunos operadores de comparación comunes incluyen:</p>
+                <li>== (igual a)</li>
+                <li>!= (diferente a)</li>
+                <li><  (menor que)</li>
+                <li>>  (mayor que)</li>
+                <li><= (menor o igual que)</li>
+                <li>>= (mayor o igual que)</li>
+
+                <p>Igualmente estan los operadores lógicos que permiten combinar expresiones booleanas <b>(True o False)</b> para crear condiciones más complejas. Estos operadores son esenciales para controlar el flujo de tu programa y tomar decisiones basadas en diferentes escenarios.</p>
+
+                <h4>Tipos de operadores lógicos:</h4>
+                <li><b>and</b> (y): Este operador devuelve True solo si ambas expresiones son <b>True</b></li>
+                <pre><code>
+    edad_mayor_igual_18 = <b>True</b>
+    tiene_identificacion = <b>True</b>
+    
+    puede_entrar = edad_mayor_igual_18 and tiene_identificacion
+    
+    print(entrar)               <b>#En este caso como cumple las 2 condiciones puede entrar</b>                 
+                                </code></pre>
+
+                <li><b>or</b> (o): Este operador devuelve True si al menos una expresión es <b>True</b></li>
+                <pre><code>
+    tiene_dni = <b>True</b>
+    tiene_passaporte = <b>False</b>
+    
+    puede_entrar = edad_mayor_igual_18 and tiene_identificacion
+    
+    print(entrar)               <b>#En este caso como cumple las 2 condiciones puede entrar</b>                 
+                </code></pre>
+
+                <li><b>not</b> (no): Este operador invierte el valor de <b>True</b> de una expresión. </li>
+                <pre><code>
+    registrado = False
+    
+    no_registrado = not registrado
+    
+    print(no_registrado)            <b>#En este caso imprime True porque esta invirtiendo el valor False que tenia la variable.</b>                     
+                </code></pre>                                                
+            </div>
+        </div>
+
+        <div class="pregunta">
+            <h2>¿Cuáles son los diferentes tipos de bucles en Python? ¿Por qué son útiles?</h2>
+            <div class="respuestas">
+                <p>Entre los diferentes tipos de bucles en python se encuentra <b>for</b>, que se utiliza para iterar sobre una secuencia de valores, como una lista o una cadena. Es útil para automatizar tareas repetitivas que se ejecutan un número determinado de veces.</p>
+                <pre><code>
+    numeros = [1, 2, 3, 4, 5]
+
+    <b>for</b> numero <b>in</b> numeros:
+        print(numero)        #Este bucle va a buscar en la lista de numeros, el numero que queremos imprimir 
+                    </code></pre>
+
+                <p>Tambien esta el bucle <b>while</b> que se utiliza para ejecutar un bloque de código mientras una condición sea True, sino el bucle no sabe cuando finalizar y va a repetir la accion hasta dar error. Es útil para automatizar tareas repetitivas que se ejecutan un número indeterminado de veces, dependiendo de la condición.</p>
+
+                <pre><code>
+    i = 0
+
+    <b>while</b> i < 5:
+    print(i)
+    i += 1                     #Este bucle va a sumar +1 a i, solo mientras i sea menor a 5.
+
+    #salida: 0 1 2 3 4
+                </code></pre>
+                <p>Son utiles porque permiten automatizar tareas repetitivas, ejecutando un bloque de código una y otra vez sin necesidad de repetirlo manualmente. Tambien procesando grandes cantidades de datos como listas, diccionarios o archivos. Y permiten construir algoritmos complejos que se ejecutan de forma eficiente.</p>
+
+            </div>
+        </div>
+
+        <div class="pregunta">
+            <h2>¿Qué es una lista por comprensión en Python?</h2>
+            <div class="respuestas">
+                <p>Las listas por comprensión son una forma concisa de crear listas a partir de otras listas, iterables o rangos. Se pueden utilizar para crear listas de números, cadenas, objetos o cualquier otro tipo de dato. La sintaxis básica de una lista por comprensión es la siguiente:</p>
+                <div class="espacio"></div>
+                <code>[ <b>expresión</b> for <b>elemento</b> in <b>iterable</b> if <b>condición</b> ]</code>
+                <div class="espacio"></div>
+                <li>expresión: La expresión que se evaluará para cada elemento del iterable.</li>
+                <li>elemento: El elemento del iterable que se está iterando.</li>
+                <li>iterable: El iterable que se está iterando.</li>
+                <li>condición: Una condición opcional que se puede utilizar para filtrar los elementos del iterable.</li>
+                <h4>Un ejemplo en la creacion de una lista de numeros</h4>
+                <pre><code>
+    numeros_pares = [i for i in range(1, 11) if i % 2 == 0]
+
+    print(numeros_pares)  
+    
+    #salida [2, 4, 6, 8, 10]
+                </code></pre>
+                <p>En el nombre de la variable que almacenará la lista de números pares. En <code><b>for i in range(1, 11)</b></code> crea un bucle del 1 al 10 (sin incluir el 11). La variable i toma el valor de cada número en la iteración. Y en <code><b>if i % 2 == 0</b></code> Esta condición verifica si el valor actual de i es divisible por 2. Si es así, se agrega a la lista.</p>
+
+                <h4>Un ejemplo en la creacion de una lista de cadenas</h4>
+                <pre><code>
+    cadenas = ["Hola", "mundo", "Python"]
+
+    mayusculas = [cadena.upper() for cadena in cadenas]
+    
+    print(mayusculas)        
+
+    #salida ['HOLA', 'MUNDO', 'PYTHON']
+                </code></pre>
+                <p>En este creamos una nueva cadena con las cadenas en mayuscula, el bucle crea una variable llamada cadena, y busca cada cadena en cadenas y las cambia a mayusculas.</p>
+            </div>
+        </div>
+
+        <div class="pregunta">
+            <h2>¿Qué es un argumento en Python?</h2>
+            <div class="respuestas">
+                <p>Los argumentos en funciones se refieren a los valores que se pasan a una función para que realice una tarea específica. Como desarrolladores, es común encontrarnos con situaciones en las que necesitamos que una función tome distintos valores para realizar una tarea en particular.</p>
+
+                <p>La flexibilidad y adaptabilidad que ofrecen las funciones Python en el manejo de argumentos es una característica única en el lenguaje, lo que lo convierte en una herramienta poderosa para el desarrollo de aplicaciones complejas. Existen diferentes tipos de argumentos que se pueden pasar a una función en Python:</p>
+                <li>Argumentos posicionales:</li>
+                <p>Este tipo de argumentos se pasan a una función en el orden en que se definieron en la firma de la función.</p>
+                <pre><code>
+                def suma(a, b):
+                    return a + b
+                
+                resultado = suma(2, 3)
+                print(resultado) 
+                
+                #salida 5
+                                </code></pre>
+                <p>En este ejemplo, los argumentos a y b son argumentos posicionales y se pasan en el orden en que se definieron en la firma de la función suma.</p>
+
+                <li>Argumentos con nombre:</li>
+                <p>Los argumentos con nombre se pasan a una función especificando su nombre en la llamada a la función. Este tipo de argumentos proporcionan una mayor claridad y legibilidad al código.</p>
+                <pre><code>
+                def resta(a, b):
+                    return a - b
+                
+                resultado = resta(b=3, a=5)
+                print(resultado) 
+                
+                #salida 2
+                                </code></pre>
+                <p>En este ejemplo, los argumentos a y b se pasan con nombre y no en el orden en que se definieron en la firma de la función resta.</p>
+
+                <li>Argumentos por defecto:</li>
+                <p>Los argumentos con valor por defecto son aquellos que se les asigna un valor en la firma de la función, pero también se pueden sobrescribir en tiempo de ejecución.</p>
+                <pre><code>
+                def saludo(nombre="Amigo"):
+                    return f"Hola, {nombre}!"
+                  
+                  print(saludo()) 
+                
+                  # "Hola, Amigo!"
+
+                  print(saludo("Ana")) 
+                  
+                  # "Hola, Ana!"
+                                </code></pre>
+                <p>En este ejemplo, el argumento nombre tiene un valor por defecto "Amigo", pero también se puede sobrescribir en tiempo de ejecución.</p>
+
+            </div>
+        </div>
+
+        <div class="pregunta">
+            <h2>¿Qué es una función Lambda en Python?</h2>
+            <div class="respuestas">
+                <p>Las funciones lambda o anónimas son un tipo de funciones en Python que típicamente se definen en una línea y cuyo código a ejecutar suele ser pequeño.Tambien se podria decir que, las funciones lambda son simplemente una versión acortada, que puedes usar si te da pereza escribir una función</p>
+                <p>Una función que suma dos números como la siguiente.</p>
+                <pre><code>
+                    def suma(a, b):
+                    return a+b
+                </code></pre>
+                <p>Pero al usar la funcion <b>lambda</b> queda de la siguiente manera.</p>
+                <pre><code>
+                    lambda a, b : a + b
+                </code></pre>
+                <p>Y es posible llamarla como si fuera una funcion normal</p>
+                <pre><code>
+                    suma(2, 4)
+
+                    #salida 6
+                </code></pre>
+                <p>El poder de lambda se muestra mejor cuando los usa como una función anónima dentro de otra función. Digamos que tiene una definición de función que toma un argumento y ese argumento se multiplicará por un número desconocido.</p>
+                <pre><code>
+                    def myfunc(n):
+                    return lambda a : a * n
+                </code></pre>
+                <p>Podemos utilizar esa definición de función para crear una función que siempre duplique el número que envía</p>
+                <pre><code>
+                    Ejemplo
+                    def myfunc(n):
+                      return lambda a : a * n
+                    
+                    mydoubler = myfunc(2)
+                    
+                    print(mydoubler(11))
+
+                    #salida 22
+                </code></pre>
+
+            <p>En resumen, Las funciones lambda son una herramienta poderosa para escribir código más compacto, legible y simple. Son ideales para tareas pequeñas que no requieren una función completa, mejorando la claridad y la eficiencia del código.</p>
+
+            </div>
+        </div>
+
+        <div class="pregunta">
+            <h2>¿Qué es un paquete pip?</h2>
+            <div class="respuestas">
+                <p>El siggnificado de pip es "Package Installer for PythonUn" y es un archivo comprimido que contiene código Python y otros recursos, como archivos de datos, documentación e imágenes. Los paquetes pip se utilizan para distribuir bibliotecas y herramientas de Python de forma organizada y eficiente.</p>
+                <h4>Características principales:</h4>
+                <li><b>Facilidad de instalación:</b> Los paquetes pip se pueden instalar y actualizar fácilmente usando la herramienta pip, que viene preinstalada en la mayoría de las distribuciones de Python.</li>
+                <li><b>Reutilización de código:</b> Los paquetes pip permiten compartir código entre diferentes proyectos de Python, lo que facilita el desarrollo y la colaboración.</li>
+                <li><b>Gestión de dependencias:</b> Los paquetes pip pueden declarar dependencias de otros paquetes, lo que facilita la instalación y gestión de las bibliotecas que necesita tu proyecto.</li>
+                <li><b>Amplia variedad:</b> Existe una gran cantidad de paquetes pip disponibles en el Python Package Index (PyPI), que es un repositorio central de paquetes de Python.</li>
+
+                <h4>Tipos de paquetes pip:</h4>
+                <li><b>Bibliotecas:</b> Proporcionan código para realizar tareas comunes, como procesamiento de datos, análisis de datos, aprendizaje automático, desarrollo web y mucho más.</li>
+                <li><b>Herramientas:</b> Proporcionan utilidades para realizar tareas específicas, como formatear código, probar código, crear documentación y mucho más.</li>
+                <li><b>Marcos de trabajo:</b> Proporcionan una estructura y un conjunto de herramientas para desarrollar aplicaciones web, aplicaciones de escritorio y aplicaciones móviles.</li>
+
+                <p>Como ejemplo podemos suponer que quieres desarrollar un proyecto de análisis de datos. Puedes instalar la biblioteca NumPy usando pip.</p>
+                <code>pip install numpy</code>
+                <p>Una vez instalado, se puede importar la biblioteca NumPy del proyecto y comenzar a usarla para realizar operaciones con matrices y vectores.</p>
+                <p>Para comprobar si pip está instalado, se abre una ventana de terminal y escribe el siguiente comando:</p>
+                <code>pip --version</code>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
