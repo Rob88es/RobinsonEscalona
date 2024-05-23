@@ -9,11 +9,13 @@ const menuDesayuno = {
   ],
   acompañamiento: [
     { comida: 'frutas', precio: 2 },
-    { comida: 'pan', precio: 1 }
+    { comida: 'pan', precio: 1 },
+    { comida: 'tequeños', precio: 3 }
   ],
   bebida: [
     { comida: 'zumo', precio: 2 },
-    { comida: 'cafe', precio: 2 }
+    { comida: 'cafe', precio: 2 },
+    { comida: 'vino', precio: 2 }
   ]
 };
 
@@ -28,11 +30,13 @@ const menuAlmuerzo = {
   ],
   acompañamiento: [
     { comida: 'arroz', precio: 2 },
-    { comida: 'pure', precio: 2 }
+    { comida: 'pure', precio: 2 },
+    { comida: 'tajadas', precio: 2 }
   ],
   bebida: [
     { comida: 'vino', precio: 2 },
-    { comida: 'agua', precio: 1 }
+    { comida: 'agua', precio: 1 },
+    { comida: 'ron', precio: 3 }
   ]
 };
 
@@ -47,11 +51,13 @@ const menuCena = {
   ],
   acompañamiento: [
     { comida: 'arroz', precio: 3 },
-    { comida: 'pure', precio: 3 }
+    { comida: 'pure', precio: 3 },
+    { comida: 'tajadas', precio: 3 }
   ],
   bebida: [
     { comida: 'vino', precio: 3 },
-    { comida: 'agua', precio: 2 }
+    { comida: 'agua', precio: 2 },
+    { comida: 'ron', precio: 4 }
   ]
 };
 
@@ -71,7 +77,6 @@ function horario(horaMin) {
     alert("¡Hora de Desayunar!");
     mostrarMenu(menuDesayuno);
     const principal = primeraEleccion(menuDesayuno);
-    alert(RandomComentario());
     const acompañamiento = segundaEleccion(menuDesayuno);
     const bebida = terceraEleccion(menuDesayuno);
     pedidoDelCliente.push({ principal, acompañamiento, bebida });
@@ -82,7 +87,6 @@ function horario(horaMin) {
     alert("¡Hora del Almuerzo!");
     mostrarMenu(menuAlmuerzo);
     const principal = primeraEleccion(menuAlmuerzo);
-    alert(RandomComentario());
     const acompañamiento = segundaEleccion(menuAlmuerzo);
     const bebida = terceraEleccion(menuAlmuerzo);
     pedidoDelCliente.push({ principal, acompañamiento, bebida });
@@ -93,7 +97,6 @@ function horario(horaMin) {
     alert("¡Hora de Cenar!");
     mostrarMenu(menuCena);
     const principal = primeraEleccion(menuCena);
-    alert(RandomComentario());
     const acompañamiento = segundaEleccion(menuCena);
     const bebida = terceraEleccion(menuCena);
     pedidoDelCliente.push({ principal, acompañamiento, bebida });
@@ -130,44 +133,47 @@ function mostrarMenu(menu) {
 // Funciones para que el cliente elija el menu
 
 function primeraEleccion(menu) {
-  let principal = {};
-  
-  while (!principal.comida) {
-    let respuesta = prompt(`¿Qué desea ordenar del menú principal? (Ingrese el nombre del plato)\n${menu.principal.map(plato => plato.comida.charAt(0).toUpperCase() + plato.comida.slice(1)).join('\n')}`).toLowerCase();
+  let principal = null;
+
+  while (!principal) {
+    let respuesta = prompt(`¿Qué desea ordenar del menú principal? (Ingrese el nombre del plato)\n${menu.principal.map(plato => `${plato.comida.charAt(0).toUpperCase() + plato.comida.slice(1)} - €${plato.precio.toFixed(2)}`).join('\n')}`).toLowerCase();
     principal = menu.principal.find(plato => plato.comida === respuesta);
     if (!principal) {
       alert('Plato no encontrado. Intente nuevamente.');
     }
   }
-  alert(`Ha seleccionado: ${principal.descripcion} - €${principal.precio.toFixed(2)}`);
+  alert(`Ha seleccionado: ${principal.descripcion.charAt(0).toUpperCase() + principal.descripcion.slice(1)} - €${principal.precio.toFixed(2)}`);
+  alert(RandomComentario());
   return principal;
 }
 
 function segundaEleccion(menu) {
-  let acompañamiento = {};
+  let acompañamiento = null;
   
-  while (!acompañamiento.comida) {
-    let respuesta = prompt(`¿Qué acompañamiento desea? (Ingrese el nombre del acompañamiento)\n${menu.acompañamiento.map(acomp => acomp.comida.charAt(0).toUpperCase() + acomp.comida.slice(1)).join('\n')}`).toLowerCase();
+  while (!acompañamiento) {
+    let respuesta = prompt(`¿Qué acompañamiento desea? (Ingrese el nombre del acompañamiento)\n${menu.acompañamiento.map(acomp => `${acomp.comida.charAt(0).toUpperCase() + acomp.comida.slice(1)} - €${acomp.precio.toFixed(2)}`).join('\n')}`).toLowerCase();
     acompañamiento = menu.acompañamiento.find(acomp => acomp.comida === respuesta);
     if (!acompañamiento) {
       alert('Acompañamiento no encontrado. Intente nuevamente.');
     }
   }
-  alert(`Ha seleccionado: ${principal.comida} - €${principal.precio.toFixed(2)}`);
+  alert(`Ha seleccionado: ${acompañamiento.comida} - €${acompañamiento.precio.toFixed(2)}`);
+  alert(RandomComentario());
   return acompañamiento;
 }
 
 function terceraEleccion(menu) {
-  let bebida = {};
+  let bebida = null;
   
-  while (!bebida.comida) {
-    let respuesta = prompt(`¿Qué bebida desea? (Ingrese el nombre de la bebida)\n${menu.bebida.map(beb => beb.comida.charAt(0).toUpperCase() + beb.comida.slice(1)).join('\n')}`).toLowerCase();
+  while (!bebida) {
+    let respuesta = prompt(`¿Qué bebida desea? (Ingrese el nombre de la bebida)\n${menu.bebida.map(beb =>`${beb.comida.charAt(0).toUpperCase() + beb.comida.slice(1)} - €${beb.precio.toFixed(2)}`).join('\n')}`).toLowerCase();
     bebida = menu.bebida.find(beb => beb.comida === respuesta);
     if (!bebida) {
       alert('Bebida no encontrada. Intente nuevamente.');
     }
   }
-  alert(`Ha seleccionado: ${principal.comida} - €${principal.precio.toFixed(2)}`);
+  alert(`Ha seleccionado: ${bebida.comida} - €${bebida.precio.toFixed(2)}`);
+  alert(RandomComentario());
   return bebida;
 }
 
@@ -193,8 +199,8 @@ function mostrarCalcularPedido() {
 
 function RandomComentario() {
   const comentario = [
-    "Buena elección", 
-    "Ese plato está entre mis favoritos",
+    "Buena eleccion", 
+    "Excelente eleccion",
     "Esa es la especialidad de este Restaurante"
   ];
   const comentarioRandom = Math.floor(Math.random() * comentario.length);
@@ -211,3 +217,4 @@ function RandomComentario2() {
   const comentarioRandom = Math.floor(Math.random() * comentario.length);
   return comentario[comentarioRandom];
 }
+
