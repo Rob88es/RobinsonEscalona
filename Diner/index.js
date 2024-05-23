@@ -114,7 +114,7 @@ function mostrarMenu(menu) {
   mensajeAlerta += "Platos principales:\n";
   
   for (const plato of Object.values(menu.principal)) {
-    mensajeAlerta += `- ${plato.comida} €${plato.precio.toFixed(2)}\n`;
+    mensajeAlerta += `- ${plato.descripcion} €${plato.precio.toFixed(2)}\n`;
   }
   mensajeAlerta += "\nAcompañamientos:\n";
   for (const acomp of Object.values(menu.acompañamiento)) {
@@ -139,6 +139,7 @@ function primeraEleccion(menu) {
       alert('Plato no encontrado. Intente nuevamente.');
     }
   }
+  alert(`Ha seleccionado: ${principal.descripcion} - €${principal.precio.toFixed(2)}`);
   return principal;
 }
 
@@ -152,6 +153,7 @@ function segundaEleccion(menu) {
       alert('Acompañamiento no encontrado. Intente nuevamente.');
     }
   }
+  alert(`Ha seleccionado: ${principal.comida} - €${principal.precio.toFixed(2)}`);
   return acompañamiento;
 }
 
@@ -165,6 +167,7 @@ function terceraEleccion(menu) {
       alert('Bebida no encontrada. Intente nuevamente.');
     }
   }
+  alert(`Ha seleccionado: ${principal.comida} - €${principal.precio.toFixed(2)}`);
   return bebida;
 }
 
